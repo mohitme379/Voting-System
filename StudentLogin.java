@@ -135,6 +135,9 @@ public class StudentLogin extends JFrame {
 							if(i==1)
 							{
 								new VotingCandidate().setVisible(true);
+								ps3.executeUpdate();
+								dispose();
+								
 							}
 							else
 							{
