@@ -1,3 +1,4 @@
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,20 +13,28 @@ public class RecordInserting extends JFrame {
 	
 	public RecordInserting()
 	{
-		setLayout(new GridLayout(5,2));
+		setLayout(new GridLayout(4,2));
 		setTitle("Registration");
 		setSize(500, 300);
 		setLocationRelativeTo(this);
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		l1 = new JLabel("Name");
-		l2 = new JLabel("Rollno");
-		l3 = new JLabel("Id");
+		Font font1 = new Font("SansSerif", Font.BOLD, 25);
+		
+		l1 = new JLabel("  Name");
+		l1.setFont (l1.getFont ().deriveFont (40.0f));
+		l2 = new JLabel("  Rollno");
+		l2.setFont (l1.getFont ().deriveFont (40.0f));
+		l3 = new JLabel("  Id");
+		l3.setFont (l1.getFont ().deriveFont (40.0f));
 		
 		t1 = new JTextField(20);
+		t1.setFont(font1);
 		t2 = new JTextField(20);
+		t2.setFont(font1);
 		t3 = new JTextField(20);
+		t3.setFont(font1);
 		
 		b1 = new JButton("Save");
 		b2 = new JButton("Reset");
