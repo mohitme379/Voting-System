@@ -121,6 +121,7 @@ public class VotingCandidate extends JFrame {
 				else
 				{
 				try {
+					
 					PreparedStatement ps=con.prepareStatement(query1);
 					
 					ps.executeUpdate();
