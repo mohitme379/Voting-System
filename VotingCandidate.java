@@ -18,6 +18,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class VotingCandidate extends JFrame {
 
@@ -74,6 +75,9 @@ public class VotingCandidate extends JFrame {
 		JRadioButton r6 = new JRadioButton("Priyanshu Sharma");
 		buttonGroup.add(r6);
 		
+		JRadioButton r7 = new JRadioButton("NOTA");
+		buttonGroup.add(r7);
+		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -83,31 +87,39 @@ public class VotingCandidate extends JFrame {
 				
 				if(r1.isSelected())
 				{
-				query1 = "update candidate set votes = votes+1 where Name = 'Rahul Yadav'";
+					query1 = "update candidate set votes = votes+1 where Name = 'Rahul Yadav'";
 				}
 				if(r2.isSelected())
 				{
-				query1 = "update candidate set votes = votes+1 where Name = 'Pooja Meena'";
+					query1 = "update candidate set votes = votes+1 where Name = 'Pooja Meena'";
 				}
 				if(r3.isSelected())
 				{
-				query1 = "update candidate set votes = votes+1 where Name = 'Vikas Choudhary'";
+					query1 = "update candidate set votes = votes+1 where Name = 'Vikas Choudhary'";
 				}
 				if(r4.isSelected())
 				{
-				query1 = "update candidate set votes = votes+1 where Name = 'Tarunveer Singh Sekhawat'";
+					query1 = "update candidate set votes = votes+1 where Name = 'Tarunveer Singh Sekhawat'";
 				}
 				if(r5.isSelected())
 				{
-				query1 = "update candidate set votes = votes+1 where Name = 'Lokesh Kumar'";
+					query1 = "update candidate set votes = votes+1 where Name = 'Lokesh Kumar'";
 				}
 				if(r6.isSelected())
 				{
-				query1 = "update candidate set votes = votes+1 where Name = 'Priyanshu Sharma'";
+					query1 = "update candidate set votes = votes+1 where Name = 'Priyanshu Sharma'";
+				}
+				if(r7.isSelected())
+				{
+					query1 = " ";
 				}
 				
-				
-				
+				if(query1 == " ")
+				{
+					
+				}
+				else
+				{
 				try {
 					PreparedStatement ps=con.prepareStatement(query1);
 					
@@ -117,6 +129,7 @@ public class VotingCandidate extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				}
 				
 				dispose();
 				JOptionPane.showMessageDialog(getParent(), "Thanks For Voting !! \n Every Vote Counts !!", "Thanks For Voting", JOptionPane.PLAIN_MESSAGE);
@@ -124,20 +137,30 @@ public class VotingCandidate extends JFrame {
 			}
 		});
 		
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(26)
+					.addComponent(btnSubmit, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(35))
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(51)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(btnSubmit, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(r4, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-						.addComponent(r3, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(r6, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(r2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(r1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(r5, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-					.addContainerGap(64, Short.MAX_VALUE))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(r7, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addComponent(r4, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+								.addComponent(r3, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(r6, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(r2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(r1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(r5, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addContainerGap(60, Short.MAX_VALUE))))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -154,9 +177,11 @@ public class VotingCandidate extends JFrame {
 					.addComponent(r5)
 					.addGap(18)
 					.addComponent(r6)
-					.addGap(26)
+					.addGap(18)
+					.addComponent(r7)
+					.addPreferredGap(ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
 					.addComponent(btnSubmit)
-					.addContainerGap(59, Short.MAX_VALUE))
+					.addGap(20))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
