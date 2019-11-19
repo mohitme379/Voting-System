@@ -115,9 +115,7 @@ public class StudentLogin extends JFrame {
 					str2 = res2.getString("Id");
 					break;
 					}
-					System.out.println("Testing block1:"+str1+"::::::::::::::::"+str2);
-					System.out.println("Testing block2:"+s1+"::::::::::::::::::"+s2);
-					
+				
 					if(str1.equalsIgnoreCase(s1) && str2.equalsIgnoreCase(s2))
 					{
 						JOptionPane.showMessageDialog(getParent(), "You have already voted !!", "Error !", JOptionPane.ERROR_MESSAGE);
@@ -132,8 +130,6 @@ public class StudentLogin extends JFrame {
 						a = res.getString("Name");
 						b = res.getString("Rollno");
 						c = res.getString("Id");
-						System.out.println(a+":"+b+":"+c);
-						System.out.println(s1+":"+s2+":"+s3);
 						
 						if(a.equalsIgnoreCase(s1) && b.equalsIgnoreCase(s2))
 						{
