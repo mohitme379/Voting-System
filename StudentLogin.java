@@ -141,9 +141,7 @@ public class StudentLogin extends JFrame {
 							}
 							else
 							{
-								JOptionPane.showMessageDialog(getParent(), "Wrong Input", "Error !", JOptionPane.ERROR_MESSAGE);
-								t1.setText(null);
-								t2.setText(null);
+								JOptionPane.showMessageDialog(getParent(), "Id does not match", "Error !", JOptionPane.ERROR_MESSAGE);
 								t3.setText(null);
 							}
 							
