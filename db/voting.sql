@@ -49,8 +49,13 @@ CREATE TABLE IF NOT EXISTS `registration` (
 DELETE FROM `registration`;
 /*!40000 ALTER TABLE `registration` DISABLE KEYS */;
 INSERT INTO `registration` (`Name`, `Rollno`, `Id`) VALUES
-	('Mohit', '379', 'BCA777'),
-	('Neel', '963', 'BSC789');
+	('Mohit', '379', 'BCA379'),
+	('Neel', '963', 'BSC789'),
+	('Satyam', '895', 'BPH159'),
+	('Jai', '852', 'BCA385'),
+	('Sanjay', '912', 'BCA203'),
+	('Vibhanshu', '308', 'BSC003'),
+	('Hritik', '330', 'BT665');
 /*!40000 ALTER TABLE `registration` ENABLE KEYS */;
 
 -- Dumping structure for table voting.voters
