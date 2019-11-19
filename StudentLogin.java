@@ -1,6 +1,5 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -84,36 +83,38 @@ public class StudentLogin extends JFrame {
 				
 				try {
 					
+					int i = 0;
 					String s1 = t1.getText();
 					String s2 = t2.getText();
 					String s3 = t3.getText();
 					String str1 = "";
 					String str2 = "";
 					
-					String query = "select * from registration where Name = ? and Rollno = ?";
+					String query = "select * from registration where NAME = ? AND Rollno = ? AND Id = ?";
 					String query2 = "select * from voters";
 					String query3 = "INSERT INTO voters VALUES (?,?)";
-					String a = "";
-					String b = "";
-					String c = "";
 					
 					
 					PreparedStatement ps = DBInfo.getConn().prepareStatement(query);
 					PreparedStatement ps2 = DBInfo.getConn().prepareStatement(query2);
 					PreparedStatement ps3 = DBInfo.getConn().prepareStatement(query3);
+					
 					ps.setString(1, s1);
 					ps.setString(2, s2);
+					ps.setString(3, s3);
+					
 					ps3.setString(1, s1);
 					ps3.setString(2, s2);
 					
 					ResultSet res = ps.executeQuery();
 					ResultSet res2 = ps2.executeQuery();
 					
+				
 					while(res2.next())
 					{
-					str1 = res2.getString("Name");
-					str2 = res2.getString("Id");
-					break;
+						str1 = res2.getString("Name");
+						str2 = res2.getString("Id");
+					
 					}
 				
 					if(str1.equalsIgnoreCase(s1) && str2.equalsIgnoreCase(s2))
@@ -125,37 +126,26 @@ public class StudentLogin extends JFrame {
 					}
 					else
 					{
-					while(res.next())
-					{
-						a = res.getString("Name");
-						b = res.getString("Rollno");
-						c = res.getString("Id");
-						
-						if(a.equalsIgnoreCase(s1) && b.equalsIgnoreCase(s2))
-						{
-							if(c.equalsIgnoreCase(s3))
+							while(res.next())
 							{
-								ps3.executeUpdate()	;
+						
+								i = 1;
+								
+							}
+							if(i==1)
+							{
 								new VotingCandidate().setVisible(true);
-								dispose();
 							}
 							else
 							{
-								JOptionPane.showMessageDialog(getParent(), "Id does not match", "Error !", JOptionPane.ERROR_MESSAGE);
+								JOptionPane.showMessageDialog(getParent(), "Incorrect Input", "Error !", JOptionPane.ERROR_MESSAGE);
+								t1.setText(null);
+								t2.setText(null);
 								t3.setText(null);
 							}
-							
 						}
-						else
-						{
-							JOptionPane.showMessageDialog(getParent(), "Wrong Input", "Error !", JOptionPane.ERROR_MESSAGE);
-							t1.setText(null);
-							t2.setText(null);
-							t3.setText(null);
-						}
+						
 					
-					}
-					}
 					
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
